@@ -1,5 +1,7 @@
 require "bundler/setup"
 require "sendle_api"
+require "dev/config"
+set_config
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

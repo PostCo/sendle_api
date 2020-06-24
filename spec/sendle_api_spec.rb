@@ -1,9 +1,6 @@
-RSpec.describe SendleApi do
+RSpec.describe SendleAPI do
   it "has a version number" do
-    expect(SendleApi::VERSION).not_to be nil
+    expect(SendleAPI::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
 end
