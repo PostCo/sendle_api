@@ -19,4 +19,5 @@ module SendleAPI
   require "sendle_api/resources/volume"
   require "sendle_api/resources/weight"
   require "sendle_api/resources/order"
+  require "sendle_api/resources/product"
 end

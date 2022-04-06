@@ -1,12 +1,12 @@
+# frozen_string_literal: true
 module SendleAPI
   class Base < ::ActiveResource::Base
-
     validate :child_object_validations
 
     self.include_root_in_json = false
     self.include_format_in_path = false
     self.connection_class = Connection
-    self.prefix = '/api/'
+    self.prefix = "/api/"
 
     def initialize(attributes = {}, persisted = false)
       if defined?(self.class::DEFAULT_ATTRS)
@@ -19,7 +19,7 @@ module SendleAPI
       self.class.validate_configs
       super
     end
-    
+
     def errors
       @errors ||= Errors.new(self)
     end
@@ -29,11 +29,11 @@ module SendleAPI
     def child_object_validations
       if defined?(self.class::CHILD_OBJECT_KEYS_FOR_VALIDATION)
         self.class::CHILD_OBJECT_KEYS_FOR_VALIDATION.each do |obj|
-          if !attributes[obj].nil? && !send(obj).valid?
-            send(obj).errors.messages.each do |msg_key, messages|
-              messages.each do |message|
-                errors.add("#{obj}_#{msg_key}".to_sym, message)
-              end
+          next unless !attributes[obj].nil? && !send(obj).valid?
+
+          send(obj).errors.messages.each do |msg_key, messages|
+            messages.each do |message|
+              errors.add("#{obj}_#{msg_key}".to_sym, message)
             end
           end
         end
@@ -41,10 +41,9 @@ module SendleAPI
     end
 
     class << self
-
       def set_site
         self.site = if SendleAPI.config.testing?
-           "https://#{basic_auth_details}@sandbox.sendle.com"
+          "https://#{basic_auth_details}@sandbox.sendle.com"
         else
           "https://#{basic_auth_details}@api.sendle.com"
         end
