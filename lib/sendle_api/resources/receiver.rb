@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SendleAPI
   class Receiver < Base
     include NotSaveable
@@ -10,7 +12,7 @@ module SendleAPI
     DEFAULT_ATTRS = {
       contact: Contact.new,
       address: Address.new,
-      instructions: ""
+      instructions: "",
     }
 
     CHILD_OBJECT_KEYS_FOR_VALIDATION = [:contact, :address]

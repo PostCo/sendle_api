@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SendleAPI
   class Address < Base
     include NotSaveable
@@ -7,7 +9,7 @@ module SendleAPI
       suburb: nil,
       state_name: nil,
       postcode: nil,
-      country: nil
+      country: nil,
     }
 
     validates :address_line1, :suburb, :state_name, :postcode, :country, presence: true

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SendleAPI
   class Contact < Base
     include NotSaveable

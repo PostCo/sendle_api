@@ -1,10 +1,9 @@
+# frozen_string_literal: true
+
 require "sendle_api/version"
 require "active_resource"
 
 module SendleAPI
-  require "phonelib"
-  require "countries"
-
   require "sendle_api/configuration"
   require "sendle_api/not_saveable"
   require "sendle_api/errors"

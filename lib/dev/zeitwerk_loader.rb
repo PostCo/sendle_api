@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "zeitwerk"
 require_relative "config"
 
 loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect(
-  "sendle_api" => "SendleAPI"
+  "sendle_api" => "SendleAPI",
 )
 loader.push_dir("./lib")
 loader.collapse("./lib/sendle_api/resources")

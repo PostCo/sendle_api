@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative "lib/sendle_api/version"
 
 Gem::Specification.new do |spec|
@@ -28,15 +29,14 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency("activeresource", ">= 4.1.0")
-  spec.add_dependency("countries", "~> 3.0")
-  spec.add_dependency("phonelib", "~> 0.6")
 
-  spec.add_development_dependency("rspec", "~> 3.2")
   spec.add_development_dependency("dotenv")
-  spec.add_development_dependency("pry-byebug")
-  spec.add_development_dependency("pry")
   spec.add_development_dependency("guard-rspec")
+  spec.add_development_dependency("pry")
+  spec.add_development_dependency("pry-byebug")
+  spec.add_development_dependency("rspec", "~> 3.2")
   spec.add_development_dependency("rubocop")
   spec.add_development_dependency("rubocop-shopify")
+  spec.add_development_dependency("zeitwerk", "~> 2.1", ">= 2.1.8")
   spec.metadata["rubygems_mfa_required"] = "true"
 end

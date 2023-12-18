@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 module SendleAPI
   class Weight < Base
@@ -5,10 +6,10 @@ module SendleAPI
 
     DEFAULT_ATTRS = {
       value: nil,
-      units: nil
+      units: nil,
     }
 
     validates :value, presence: true
-    validates :units, inclusion: { in: %w(lb kg)   }
+    validates :units, inclusion: { in: ["lb", "kg"] }
   end
 end

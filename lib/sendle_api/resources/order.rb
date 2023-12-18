@@ -1,4 +1,6 @@
-require 'digest/sha1'
+# frozen_string_literal: true
+
+require "digest/sha1"
 
 module SendleAPI
   class Order < Base
@@ -8,7 +10,7 @@ module SendleAPI
     has_one :receiver, class_name: Receiver
 
     validates :description, :weight, :sender, :receiver, presence: true
-    validates :first_mile_option, inclusion: { in: ["pickup", "drop off"]}
+    validates :first_mile_option, inclusion: { in: ["pickup", "drop off"] }
 
     DEFAULT_ATTRS = {
       pickup_date: nil,
@@ -20,7 +22,7 @@ module SendleAPI
       weight: Weight.new,
       volume: Volume.new,
       sender: Sender.new,
-      receiver: Receiver.new
+      receiver: Receiver.new,
     }
 
     CHILD_OBJECT_KEYS_FOR_VALIDATION = [:weight, :volume, :sender, :receiver]
@@ -47,8 +49,7 @@ module SendleAPI
     end
 
     def set_idempotency_key_header
-      self.class.headers.merge!("Idempotency-Key": Digest::SHA1.hexdigest(self.encode))
+      self.class.headers.merge!("Idempotency-Key": Digest::SHA1.hexdigest(encode))
     end
-
   end
 end

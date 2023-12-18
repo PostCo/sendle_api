@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module SendleAPI
   class Base < ::ActiveResource::Base
     validate :child_object_validations

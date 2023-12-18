@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SendleAPI
   class Configuration
     attr_accessor :sendle_id, :api_key, :testing
